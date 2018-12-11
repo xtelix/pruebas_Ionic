@@ -2,8 +2,7 @@ import { HomePage } from './../home/home';
 import { User } from './../../models/users';
 import { MemoriaProvider } from './../../providers/memoria/memoria';
 import { Component, NgModule } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the TransicionesPage page.
@@ -25,13 +24,11 @@ export class TransicionesPage {
     public navParams: NavParams,
     public alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
-    private memoriaProvider: MemoriaProvider) {
+    private memoriaProvider: MemoriaProvider,
+    private viewControl: ViewController) {
       this.persona = "";
   }
 
-  ionViewDidLoad() {
-    
-  }
 
   ionViewCanLeave(){
     let loading = this.loadingCtrl.create({
@@ -57,7 +54,7 @@ export class TransicionesPage {
     let promesa = new Promise((resolve, reject)=>{
        this.confirmAlert(resolve);
     });
-   
+    console.log("ionViewCanEnter");
     return promesa;
   }
 
@@ -94,7 +91,34 @@ export class TransicionesPage {
 
   irBack(dato:string){
     let temp = dato;
+    /*
     this.navCtrl.pop();
-    this.navCtrl.push(HomePage, {temp});
+    this.navCtrl.push(HomePage, {lol: dato});*/
+
+    this.viewControl.dismiss(temp);
   }
+  
+  ionViewDidLoad() {
+    console.log("ionViewDidLoad");
+  }
+   
+   ionViewWillEnter(){
+     console.log("ionViewWillEnter");
+   }
+   
+   ionViewDidEnter(){
+     console.log("ionViewDidEnter");
+   }
+   
+   ionViewWillLeave(){
+     console.log("ionViewWillLeave");
+   }
+   
+   ionViewDidLeave(){
+     console.log("ionViewDidLeave");
+   }
+   
+   ionViewWillUnload(){
+     console.log("ionViewWillUnload");
+   }
 }
