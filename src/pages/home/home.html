@@ -1,14 +1,20 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
-    </ion-title>
+      {{this.temp}}
+    </ion-title>  
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <ion-item *ngFor="let persona of list" (click)="mostrarAlerta(persona)">
+      {{persona.nombre}}
+    </ion-item>
+    <ion-item>
+      <button ion-button block (click)="irTran()">
+        Ir a transisciones
+      </button>
+    </ion-item>
+  </ion-list>
 </ion-content>

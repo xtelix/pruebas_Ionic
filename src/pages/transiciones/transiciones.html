@@ -1,0 +1,25 @@
+<!--
+  Generated template for the TransicionesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>transiciones</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ <ion-list>
+   <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input type="text" [value]="persona"  [(ngModel)]="persona"></ion-input>
+   </ion-item>
+   <button ion-button (click)="ingresarData(persona)">Guardar</button>
+   <button ion-button (click)="irBack(persona)">back</button>
+ </ion-list>
+</ion-content>
